@@ -1,0 +1,15 @@
+spring.cloud.stream:
+  function:
+    definition: squaredNumberConsumer
+  bindings:
+    squaredNumberConsumer-in-0:
+      destination: consumer
+    squaredNumberConsumer-out-0:
+      destination: mlprocessor
+      producer:
+        use-native-encoding: true
+  kafka:
+    binder:
+      brokers:
+        - localhost:9091
+        - localhost:9092
